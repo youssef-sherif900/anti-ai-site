@@ -17,11 +17,239 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --color: rgba(122, 122, 124, 0.918);
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
+.container_mouse {
+  text-align: center;
+  color: var(--color);
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-top: 2rem;
+  cursor: pointer;
+}
+
+.container_mouse .mouse-btn {
+  margin: 10px auto;
+  width: 30px;
+  height: 60px;
+  border: 2px solid var(--color);
+  border-radius: 30px;
+  display: flex;
+}
+
+.container_mouse .mouse-btn .mouse-scroll {
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: linear-gradient(170deg, rgba(122, 122, 124, 0.918), rgb(123, 124, 124));
+  border-radius: 50%;
+  margin: auto;
+  animation: scrolling 1s linear infinite;
+}
+
+
+@keyframes scrolling {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(15px);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+html,
+body,
+#root,
+.scroll {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  overflow: hidden;
+}
+
+#root {
+  overflow: auto;
+}
+
+.scroll {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  scroll-snap-type: y proximity;
+}
+
+.scroll > div {
+  scroll-snap-align: start;
+}
+
+body {
+  overflow: hidden;
+  overscroll-behavior-y: none;
+  background-color: #101010;
+  background: radial-gradient(circle at bottom center, #212121 0%, #101010 80%);
+
+  -webkit-font-smoothing: antialiased;
+}
+
+.caption {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 80px;
+  color: white;
+  font-size: 8em;
+  font-weight: 100;
+  line-height: 1em;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: auto;
+}
+
+.dot {
+
+  position: sticky;
+  top: 0px;
+  display: inline-block;
+  max-width: 600px;
+  padding: 0;
+  padding: 80px;
+  color: #a0a0a0;
+  line-height: 1.6em;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+}
+
+.dot > h1 {
+  -webkit-font-smoothing: auto;
+  pointer-events: none;
+  color: white;
+  font-size: 5em;
+  font-weight: 100;
+  line-height: 1em;
+  margin: 0;
+  margin-bottom: 0.25em;
+}
+
+@media only screen and (max-width: 1000px) {
+  .caption {
+    font-size: 4em;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .caption {
+    font-size: 3em;
+  }
+  .dot > h1 {
+    font-size: 3em;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .caption {
+    font-size: 2em;
+  }
+  .dot > h1 {
+    font-size: 3em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .caption {
+    font-size: 1em;
+  }
+  .dot > h1 {
+    font-size: 3em;
   }
 }

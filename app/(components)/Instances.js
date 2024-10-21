@@ -4,6 +4,7 @@ import MainSphere from './MainSphere';
 import { Icosahedron } from '@react-three/drei';
 
 function Instances({ material }) {
+  
  // we use this array ref to store the spheres after creating them
  const [sphereRefs] = useState(() => []);
  // we use this array to initialize the background spheres

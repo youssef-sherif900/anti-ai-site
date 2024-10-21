@@ -1,47 +1,40 @@
 "use client";
-import * as THREE from "three";
 import {
-  Html,
+  Float,
   Icosahedron,
   MeshDistortMaterial,
   useCubeTexture,
+  useGLTF,
   useTexture,
+  useAnimations,
 } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import React, { useRef, useState } from "react";
+import { easing } from 'maath'
 
-function MainSphere({ material }) {
-  const main = useRef();
-
-  // main sphere rotates following the mouse position
-  useFrame(({ clock, mouse }) => {
-    main.current.rotation.z = clock.getElapsedTime();
-    main.current.rotation.y = THREE.MathUtils.lerp(
-      main.current.rotation.y,
-      mouse.x * Math.PI,
-      0.1
-    );
-    main.current.rotation.x = THREE.MathUtils.lerp(
-      main.current.rotation.x,
-      mouse.y * Math.PI,
-      0.1
-    );
-  });
+function Kamdo(props) {
+  const head = useRef()
+  const stripe = useRef()
+  const light = useRef()
+  const { nodes, materials } = useGLTF('/s2wt_kamdo_industrial_divinities-transformed.glb')
+  useFrame((state, delta) => {
+    const t = (1 + Math.sin(state.clock.elapsedTime * 2)) / 2
+    stripe.current.color.setRGB(2 + t * 20, 2, 20 + t * 50)
+    easing.dampE(head.current.rotation, [0, state.pointer.x * (state.camera.position.z > 1 ? 1 : -1), 0], 0.4, delta)
+    light.current.intensity = 1 + t * 4
+  })
   return (
-    <>
-      <Icosahedron
-        args={[2, 6]}
-        ref={main}
-        material={material}
-        position={[-2.5, 0, 0]}
-      >
-        <Html center as="h1" className=" relative right-0 text-5xl">
-          About
-        </Html>
-        <Html center as="h1"  className="absolute top-[200vh] right-0 text-5xl"  >Location</Html>
-      </Icosahedron>
-    </>
-  );
+    <group {...props} position={[0, -1.8, 0]} scale={0.8}>
+      <mesh castShadow receiveShadow geometry={nodes.body001.geometry} material={materials.Body} />
+      <group ref={head}>
+        <mesh castShadow receiveShadow geometry={nodes.head001.geometry} material={materials.Head} />
+        <mesh castShadow receiveShadow geometry={nodes.stripe001.geometry}>
+          <meshBasicMaterial ref={stripe} toneMapped={false} />
+          <pointLight ref={light} intensity={0.5} color={[0, 0, 5]} distance={2.5} />
+        </mesh>
+      </group>
+    </group>
+  )
 }
 
 function Instances({ material }) {
@@ -71,7 +64,7 @@ function Instances({ material }) {
   });
   return (
     <>
-      <MainSphere material={material} />
+      <Kamdo rotation={[0, Math.PI, 0]} />
       {initialPositions.map((pos, i) => (
         <Icosahedron
           args={[1, 4]}
@@ -115,3 +108,4 @@ function Scene() {
 }
 
 export default Scene;
+useGLTF.preload('/s2wt_kamdo_industrial_divinities-transformed.glb')

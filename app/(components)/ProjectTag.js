@@ -8,7 +8,7 @@ function ProjectTag() {
 
 
   return (
-    <motion.h1 initial={{opacity:0}} whileInView={{opacity:1 , transition:{duration:.5 , delay:.5}}}   className= "absolute text-3xl top-[190vh] left-[45vw]  duration-200" >Projects</motion.h1>
+    <motion.h1 initial={{opacity:0}} whileInView={{opacity:1 , transition:{duration:.5 , delay:.5}}}   className= "text-3xl   duration-200" >Projects</motion.h1>
   )
 }
 

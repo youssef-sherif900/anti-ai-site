@@ -1,9 +1,9 @@
 "use client"
-import React, { Suspense, useEffect, useRef } from "react"
-import { Canvas } from "@react-three/fiber"
-import { Environment, Html } from "@react-three/drei"
-import Model from "./components/Model"
+import React, { useRef } from "react"
 import Overlay from "./components/Overlays"
+import dynamic from 'next/dynamic'
+
+const DynamicCanvas = dynamic(() => import('./components/DynamicCanvas'), { ssr: false })
 
 export default function App() {
   const overlay = useRef()
@@ -13,14 +13,7 @@ export default function App() {
 
   return (
     <div id="service" className="h-screen">
-      <Canvas shadows eventSource={document} eventPrefix="client">
-        <ambientLight intensity={1} />
-        <Suspense fallback={"loading..."}>
-          <Model scroll={scroll} />
-          <Environment preset="city" />
-        </Suspense>
-        <color attach="background" args={["#050505"]} />
-      </Canvas>
+      <DynamicCanvas scroll={scroll} />
        <Overlay ref={overlay} caption={caption} scroll={scroll} />
     </div>
   )

@@ -1,6 +1,7 @@
 "use client";
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
+import Container from "./(components)/ChatbotComponents/Container";
 import {
   EffectComposer,
   DepthOfField,
@@ -8,12 +9,12 @@ import {
   Noise,
   Vignette,
 } from "@react-three/postprocessing";
-import { Html, ScrollControls } from "@react-three/drei";
+import { Html, ScrollControls, useGLTF } from "@react-three/drei";
 import HomeContent from "./(components)/HomeContent";
 import Scene from "./(components)/Scene";
 
-
 export default function Home() {
+  const { scene } = useGLTF("/models/shield.glb");
 
   return (
     <>
@@ -30,12 +31,18 @@ export default function Home() {
       >
         <color attach="background" args={["#050505"]} />
         <fog color="#161616" attach="fog" near={8} far={30} />
-        <Suspense fallback={<Html center>Loading.</Html>}>
-          <ScrollControls damping={0.1} pages={5}>
-          <HomeContent/>
+        <Suspense fallback={<Html center>Loading...</Html>}>
+          <ScrollControls damping={0.1} pages={5.5}>
+            <HomeContent />
             <Scene />
           </ScrollControls>
         </Suspense>
+        
+        {/* Improved lighting setup */}
+        <ambientLight intensity={4} />
+        <directionalLight position={[5, 5, 5]} intensity={2} />
+        <pointLight position={[-5, -5, -5]} intensity={2} />
+
         <EffectComposer multisampling={0} disableNormalPass={true}>
           <DepthOfField
             focusDistance={0}
@@ -53,6 +60,7 @@ export default function Home() {
           <Vignette eskil={false} offset={0.1} darkness={1.1} />
         </EffectComposer>
       </Canvas>
-      </>
+      <Container/>
+    </>
   );
 }

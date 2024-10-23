@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import { Toaster } from "@/components/ui/toaster"
 import "./globals.css";
 
 const geistMono = localFont({
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
         className={`${geistMono.variable} antialiased overflow-y-scroll`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );

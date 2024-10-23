@@ -85,23 +85,23 @@ export default function CareerPosition() {
       <form onSubmit={handleSubmit} className="space-y-4 max-w-xl w-1/2 bg-gray-900 p-8 rounded-lg">
         <div>
           <label htmlFor="name" className="block mb-2">Full name</label>
-          <Input name="name" placeholder="John Doe" required onChange={handleInputChange} value={formData.name} />
+          <input className="w-full p-2 rounded-lg bg-transparent ring-1 ring-white" name="name" placeholder="John Doe" required onChange={handleInputChange} value={formData.name} />
         </div>
         <div>
           <label htmlFor="email" className="block mb-2">Email</label>
-          <Input name="email" type="email" placeholder="john@example.com" required onChange={handleInputChange} value={formData.email} />
+          <input className="w-full p-2 rounded-lg bg-transparent ring-1 ring-white" name="email" type="email" placeholder="john@example.com" required onChange={handleInputChange} value={formData.email} />
         </div>
         <div>
           <label htmlFor="contact_no" className="block mb-2">Mobile number</label>
-          <Input name="contact_no" type="tel" placeholder="+1 (555) 000-0000" required onChange={handleInputChange} value={formData.contact_no} />
+          <input className="w-full p-2 rounded-lg bg-transparent ring-1 ring-white" name="contact_no" type="tel" placeholder="+1 (555) 000-0000" required onChange={handleInputChange} value={formData.contact_no} />
         </div>
         <div>
           <label htmlFor="current_location" className="block mb-2">Current Location</label>
-          <Input name="current_location" placeholder="e.g. New York, USA" required onChange={handleInputChange} value={formData.current_location} />
+          <input className="w-full p-2 rounded-lg bg-transparent ring-1 ring-white" name="current_location" placeholder="e.g. New York, USA" required onChange={handleInputChange} value={formData.current_location} />
         </div>
         <div>
           <label htmlFor="role" className="block mb-2">Desired position</label>
-          <Input name="role" placeholder="e.g. Full Stack Developer" required onChange={handleInputChange} value={formData.role} />
+          <input className="w-full p-2 rounded-lg bg-transparent ring-1 ring-white" name="role" placeholder="e.g. Full Stack Developer" required onChange={handleInputChange} value={formData.role} />
         </div>
         <div className="relative">
           <label htmlFor="Resume" className="block mb-2 text-sm font-medium text-gray-300">Upload Resume</label>
@@ -125,9 +125,9 @@ export default function CareerPosition() {
           <input type="checkbox" id="terms" className="mr-2" required />
           <label htmlFor="terms">I accept the terms and conditions</label>
         </div>
-        <Button type="submit" className="w-full" disabled={isSubmitting}>
+        <button  type="submit" className="w-full bg-black py-2 rounded-md hover:bg-slate-800" disabled={isSubmitting}>
           {isSubmitting ? "Submitting..." : "SUBMIT"}
-        </Button>
+        </button>
       </form>
     </div>
   );

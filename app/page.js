@@ -14,7 +14,7 @@ import HomeContent from "./(components)/HomeContent";
 import Scene from "./(components)/Scene";
 
 export default function Home() {
-  const { scene } = useGLTF("/models/shield.glb");
+  // const { scene } = useGLTF("/models/shield.glb");
 
   return (
     <>

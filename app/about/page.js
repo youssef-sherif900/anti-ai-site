@@ -14,7 +14,7 @@ import Scene from "./(components)/Scene";
 import Content from "./(components)/Content";
 
 function page() {
-  const { scene } = useGLTF("/nora.glb");
+
 
   return (
     <div className=" h-screen relative">

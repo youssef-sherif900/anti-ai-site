@@ -1,5 +1,5 @@
-import {  MeshDistortMaterial, useCubeTexture, useTexture } from '@react-three/drei';
-import React, { useState } from 'react'
+import { MeshDistortMaterial, useCubeTexture, useTexture } from '@react-three/drei';
+import React, { useState, useEffect } from 'react'
 import Instances from './Instances';
 
 function Scene() {
@@ -8,24 +8,32 @@ function Scene() {
       ["px.png", "nx.png", "py.png", "ny.png", "pz.png", "nz.png"],
       { path: "/cube/" }
     );
-    // We use `useResource` to be able to delay rendering the spheres until the material is ready
-    const [material, set] = useState();
-  
+    const [material, setMaterial] = useState(null); // Initialize material state
+
+    useEffect(() => {
+        if (bumpMap && envMap) {
+            setMaterial({
+                bumpMap,
+                envMap,
+                color: "#010101",
+                roughness: 0.1,
+                metalness: 1,
+                bumpScale: 0.005,
+                clearcoat: 1,
+                clearcoatRoughness: 1,
+                radius: 1,
+                distort: 0.4,
+            });
+        }
+    }, [bumpMap, envMap]); // Set material when bumpMap and envMap are ready
+
     return (
       <>
-        <MeshDistortMaterial
-          ref={set}
-          envMap={envMap}
-          bumpMap={bumpMap}
-          color={"#010101"}
-          roughness={0.1}
-          metalness={1}
-          bumpScale={0.005}
-          clearcoat={1}
-          clearcoatRoughness={1}
-          radius={1}
-          distort={0.4}
-        />
+        {material && (
+          <MeshDistortMaterial
+            {...material} // Spread the material properties
+          />
+        )}
         {material && <Instances material={material} />}
       </>
     );

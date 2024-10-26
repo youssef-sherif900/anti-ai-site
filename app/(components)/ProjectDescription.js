@@ -1,6 +1,5 @@
 import React from "react";
 import { delay, motion } from "framer-motion";
-import { duration } from "@mui/material";
 import Image from "next/image";
 
 // ANTI.0 is our pioneering Anti AI Software, specifically crafted to

@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import {delay, motion, useTransform} from "framer-motion"
-import { useScroll } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
-import { duration } from '@mui/material';
+import React from 'react'
+import { motion, } from "framer-motion"
+
 
 function ProjectTag() {
 

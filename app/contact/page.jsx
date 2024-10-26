@@ -1,6 +1,6 @@
 import React from 'react'
 import ContactForm from './component/ContactForm'
-import SocialIcons from './component/SocialIcons'
+import SocialIcons from './component/socialIcons'
 
 function ContactPage() {
   return (

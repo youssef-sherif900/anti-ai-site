@@ -14,12 +14,12 @@ import HomeContent from "./(components)/HomeContent";
 import Scene from "./(components)/Scene";
 
 export default function Home() {
-  // const { scene } = useGLTF("/models/shield.glb");
+
 
   return (
     <>
       <Canvas
-        className="fixed z-0"
+        className="absolute  z-0"
         camera={{ position: [0, 0, 3] }}
         gl={{
           powerPreference: "high-performance",

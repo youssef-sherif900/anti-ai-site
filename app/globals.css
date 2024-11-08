@@ -181,7 +181,6 @@ body,
 body {
   overscroll-behavior-y: none;
   background-color: #101010;
-  background: radial-gradient(circle at bottom center, #212121 0%, #101010 80%);
 
   -webkit-font-smoothing: antialiased;
 }
@@ -228,6 +227,7 @@ body {
 @media only screen and (max-width: 1000px) {
   .caption {
     font-size: 4em;
+    right: -50px;
   }
 }
 

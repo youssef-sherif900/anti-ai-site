@@ -11,7 +11,7 @@ export default function DynamicCanvas({scroll}) {
       <Model scroll={scroll} />
       <Environment preset="city" />
     </Suspense>
-    <color attach="background" args={["#050505"]} />
+    <color attach="background" args={["#020202"]} />
   </Canvas>
   )
 }

@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import ScrollDown from "./ScrollDown";
-import NavBar from "./NavBar";
 import BinaryDownloadButton from "./BinaryButton";
 
 function HomeContent() {
@@ -29,12 +28,20 @@ function HomeContent() {
   return (
     <Scroll html>
       <ScrollDown />
-      <NavBar />
+      <div className="w-screen"></div>
       <motion.h1
         initial="hidden"
         animate="visible"
         variants={name}
-        className="absolute top-[40vh] left-[15vw] text-8xl font-geist-mono"
+        className="absolute  top-[12vh] lg:hidden  text-nowrap  w-screen text-center text-6xl  font-geist-mono"
+      >
+        ANTI Ai
+      </motion.h1>
+      <motion.h1
+        initial="hidden"
+        animate="visible"
+        variants={name}
+        className="absolute hidden lg:block top-[40vh] left-[15vw]  text-8xl font-geist-mono"
       >
         Anti
       </motion.h1>
@@ -42,7 +49,7 @@ function HomeContent() {
         initial="hidden"
         animate="visible"
         variants={name}
-        className="absolute lg:top-[40vh] top-[50vh] lg:right-[25vw] right-[15vw] text-8xl font-geist-mono"
+        className="absolute hidden lg:block  top-[40vh]  right-[25vw]  text-8xl font-geist-mono"
       >
         Ai
       </motion.h1>
@@ -82,7 +89,7 @@ function HomeContent() {
         </h1>
         {/* <BinaryDownloadButton /> */}
       </motion.div>
-      <div className="absolute top-[220vh] flex flex-col items-center justify-center space-y-20 mx-20">
+      <div className="absolute top-[200vh] lg:top-[220vh] flex flex-col items-center justify-center space-y-20 md:space-y-20 mx-5 lg:mx-20">
       <ProjectTag />
       <ProjectDescription
         image="/static/radio.jpg"
@@ -109,7 +116,7 @@ function HomeContent() {
         tags={["ANTI.1", "innovation", "Ethical AI"]}
       />
       </div>
-      <form className="p-4 flex flex-col absolute lg:top-[450vh] top-[450vh] right-[10vw] justify-center items-center  lg:w-[500px] w-[300px] border-2 border-[#8d8d8d] rounded-md bg-black">
+      <form className="p-4 flex flex-col absolute lg:top-[450vh] top-[420vh] right-[10vw] justify-center items-center  lg:w-[500px] w-[300px] border-2 border-[#8d8d8d] rounded-md bg-black">
         <h1 className="w-full text-2xl py-3">contact</h1>
         <div className="flex items-center justify-between my-3 w-full">
           <Input className="mr-4" type="text" placeholder="First Name" />

@@ -19,11 +19,11 @@ function Content() {
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 1 }}
-        className="h-[100vh] left-[65vw] flex flex-col items-start justify-center absolute right-0"
+        className="h-[100vh] left-3 lg:left-[65vw] flex flex-col items-start justify-center absolute right-0"
       >
         <h1 className="text-5xl"> About </h1>
         <ExpandText
-          className="w-[400px] leading-8 mt-4"
+          className=" w-[80vw] lg:w-[400px] leading-8 mt-4"
           text="Anti AI is an AI research and development company. Our mission
         is to ensure that the threat from artificial general
         intelligence are mitigated even before they arise. We believe
@@ -40,12 +40,12 @@ function Content() {
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 1 }}
-        className="h-[100vh] left-[10vw] w-[40vw] flex flex-col items-start justify-center absolute top-[100vh] right-0"
+        className="h-[100vh] left-2 lg:left-[10vw]  w-[80vw] lg:w-[40vw] flex flex-col items-start justify-center absolute top-[100vh] right-0"
       >
         <h1 className="text-5xl mb-4">Our Mission and Vision </h1>
         <ExpandText
           className="leading-8"
-          text="          At ANTI.Ai, our mission is clear: to mitigate the risks associated
+          text="At ANTI.Ai, our mission is clear: to mitigate the risks associated
           with AGI and to ensure that AI technologies are developed and used
           safely. We believe that AI should serve as a tool for progress, not a
           threat to our future. Our team is dedicated to creating first-in-class
@@ -67,7 +67,7 @@ function Content() {
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 1 }}
-        className="h-[100vh] left-[55vw] w-[40vw] flex flex-col items-start justify-center absolute top-[200vh] right-0"
+        className="h-[100vh] left-2 lg:left-[55vw] w-[80vw] lg:w-[40vw] flex flex-col items-start justify-center absolute top-[200vh] right-0"
       >
         <h1 className="text-5xl mb-4">Our Commitment to India and the World</h1>
         <ExpandText
@@ -92,14 +92,14 @@ function Content() {
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 1 }}
-        className="h-[100vh] left-[10vw] w-[40vw] flex flex-col items-start justify-center absolute top-[300vh] right-0"
+        className="h-[100vh] left-2 lg:left-[10vw] w-[80vw] lg:w-[40vw]  flex flex-col items-start justify-center absolute top-[300vh] right-0"
       >
         <h1 className="text-5xl mb-4">The Role of AI Detection and Safety</h1>
         <p className="leading-8">
           In our quest to build a safer AI environment, ANTI.Ai focuses on
           several critical aspects:
         </p>
-        <div className="flex flex-row gap-4 mt-3">
+        <div className="flex flex-col lg:flex-row gap-4 mt-3">
           <div className="flex-1 bg-black border border-white rounded-lg shadow-md p-4 flex flex-col items-center justify-center">
             <Radar size={48} className="text-white mb-2" />
             <h3 className="text-xl font-semibold text-white text-center">AI Detectors</h3>
@@ -120,7 +120,7 @@ function Content() {
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 1 }}
-        className="h-[100vh] left-[55vw] w-[40vw] flex flex-col items-start justify-center absolute top-[400vh] right-0"
+        className="h-[100vh] left-2 lg:left-[55vw] w-[80vw] lg:w-[40vw] flex flex-col items-start justify-center absolute top-[400vh] right-0"
       >
         <h1 className="text-5xl mb-4">
           Building a Team with Passion and Purpose
@@ -143,7 +143,7 @@ function Content() {
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 1 }}
-        className="h-[100vh] left-[10vw] w-[40vw] flex flex-col items-start justify-center absolute top-[500vh] right-0"
+        className="h-[100vh] left-2 lg:left-[10vw] w-[80vw] lg:w-[40vw] flex flex-col items-start justify-center absolute top-[500vh] right-0"
       >
         <h1 className="text-5xl mb-4">
           The Path Forward: Unity and Innovation
@@ -168,7 +168,7 @@ function Content() {
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 1 }}
-        className="h-[100vh] left-[55vw] flex flex-col items-start justify-center absolute top-[600vh] right-0"
+        className="h-[100vh] left-2 lg:left-[55vw] flex flex-col items-start justify-center absolute top-[600vh] right-0"
       >
         <h1 center className="text-5xl mb-6">
           Location

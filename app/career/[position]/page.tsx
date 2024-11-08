@@ -63,8 +63,8 @@ export default function CareerPosition() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex justify-between mx-auto py-10 px-12">
-      <div className="mt-[10%] w-1/2 h-full">
+    <div className="min-h-screen bg-background text-foreground flex flex-col md:flex-row justify-between mx-auto py-10 px-4 md:px-12">
+      <div className="mt-[10%] w-full md:w-1/2 h-full">
         <h1 className="text-4xl font-bold mb-6">Open Positions</h1>
         <p className="mb-4">
           We at Anti.ai are always on the lookout for bright minds to join our
@@ -82,7 +82,7 @@ export default function CareerPosition() {
         </ul>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4 max-w-xl w-1/2 bg-gray-900 p-8 rounded-lg">
+      <form onSubmit={handleSubmit} className="space-y-4 max-w-xl w-full mt-10 md:mt-0 md:w-1/2 bg-gray-900 p-8 rounded-lg">
         <div>
           <label htmlFor="name" className="block mb-2">Full name</label>
           <input className="w-full p-2 rounded-lg bg-transparent ring-1 ring-white" name="name" placeholder="John Doe" required onChange={handleInputChange} value={formData.name} />
